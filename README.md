@@ -10,13 +10,20 @@ Static workshop app for mapping Databricks platform capabilities into architectu
 
 ## Source Notes
 
-The card set is based on current Databricks documentation for:
+The board uses Databricks-native architecture areas:
 
-- Lakeflow Connect, Lakeflow Spark Declarative Pipelines, and Lakeflow Jobs
-- Unity Catalog, governed tables, lineage, sharing, federation, and fine-grained access controls
-- Databricks SQL, AI/BI dashboards, Genie Spaces, metric views, and alerts
-- Mosaic AI, Feature Store, Vector Search, Model Serving, Foundation Model APIs, and Agent Framework
-- System tables, audit logs, event logs, query history, and model serving monitoring
+- Platform Foundation
+- Identity, Security, and Access
+- Data Ingestion
+- Storage and Table Management
+- Data Engineering and Transformation
+- Governance and Discovery
+- Data Sharing and Interoperability
+- Analytics and BI Serving
+- Machine Learning and AI
+- Operations, Monitoring, and Cost Management
+
+The card set is based on Databricks capabilities for Lakeflow, Unity Catalog, governed tables, sharing, federation, Databricks SQL, AI/BI, Mosaic AI, system tables, audit logs, billing usage, and monitoring.
 
 Useful references:
 
