@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Databricks Data Platform Architecture Challenge</title>
+    <link rel="stylesheet" href="styles.css?v=compact2" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-block">
+        <span class="brand-mark" aria-hidden="true">DB</span>
+        <div>
+          <h1>Databricks Data Platform Architecture Challenge</h1>
+          <p>
+            Drag Databricks platform capabilities into the architecture zone
+            where your team would use them.
+          </p>
+        </div>
+      </div>
+      <div class="header-actions" aria-label="Board actions">
+        <button type="button" id="checkBtn" class="button button--primary">
+          Check architecture
+        </button>
+        <button type="button" id="revealBtn" class="button">
+          Reveal suggested answer
+        </button>
+        <button type="button" id="resetBtn" class="button button--quiet">
+          Reset board
+        </button>
+        <button type="button" id="exportBtn" class="button button--quiet">
+          Export team answer
+        </button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="board-shell" aria-labelledby="boardTitle">
+        <div class="board-heading">
+          <div>
+            <span class="section-label">Architecture zones</span>
+            <h2 id="boardTitle">Place Databricks capabilities</h2>
+          </div>
+          <div class="score-card" aria-live="polite">
+            <strong id="scoreValue">0/0</strong>
+            <span id="scoreLabel">cards placed</span>
+          </div>
+        </div>
+
+        <div id="statusMessage" class="status-message" role="status">
+          Drag cards from the palette into the matching architecture zones.
+        </div>
+
+        <div id="zonesGrid" class="zones-grid" aria-label="Databricks architecture drop zones"></div>
+      </section>
+
+      <aside class="palette-shell" aria-labelledby="paletteTitle">
+        <div class="palette-heading">
+          <div>
+            <span class="section-label">Service palette</span>
+            <h2 id="paletteTitle">Databricks cards</h2>
+          </div>
+          <p>Tip: hover for a description, or click a card and then a zone.</p>
+        </div>
+        <div id="palette" class="palette drop-target" data-zone="palette"></div>
+      </aside>
+    </main>
+
+    <script src="script.js?v=compact2"></script>
+  </body>
+</html>
