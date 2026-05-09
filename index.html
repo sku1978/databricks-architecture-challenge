@@ -9,7 +9,13 @@
   <body>
     <header class="app-header">
       <div class="brand-block">
-        <span class="brand-mark" aria-hidden="true">DB</span>
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="brand-mark__logo" viewBox="0 0 64 54" focusable="false">
+            <path d="M32 2 3 18l29 16 29-16L32 2Z" />
+            <path d="m3 28 29 16 29-16" />
+            <path d="m3 38 29 16 29-16" />
+          </svg>
+        </span>
         <div>
           <h1>Databricks Data Platform Architecture Challenge</h1>
           <p>
@@ -31,8 +37,34 @@
         <button type="button" id="exportBtn" class="button button--quiet">
           Export team answer
         </button>
+        <button type="button" id="helpBtn" class="button button--icon" aria-label="How to play" title="How to play">
+          ?
+        </button>
       </div>
     </header>
+
+    <div id="helpDialog" class="help-dialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle" hidden>
+      <div class="help-dialog__backdrop" data-help-close></div>
+      <section class="help-dialog__panel" tabindex="-1">
+        <div class="help-dialog__heading">
+          <div>
+            <span class="section-label">How to play</span>
+            <h2 id="helpTitle">Place the Databricks capabilities</h2>
+          </div>
+          <button type="button" id="closeHelpBtn" class="button button--icon" aria-label="Close help" title="Close">
+            x
+          </button>
+        </div>
+        <ol class="help-steps">
+          <li>Read each architecture zone and its hint.</li>
+          <li>Drag Databricks cards from the palette into the zone where they best fit.</li>
+          <li>Click a card, then click a zone if you prefer not to drag.</li>
+          <li>Use Check architecture to score your placement and highlight cards to revisit.</li>
+          <li>Reveal suggested answer when your team is ready to compare approaches.</li>
+          <li>Export team answer to save the board as JSON.</li>
+        </ol>
+      </section>
+    </div>
 
     <main class="layout">
       <section class="board-shell" aria-labelledby="boardTitle">

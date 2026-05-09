@@ -435,8 +435,12 @@ const checkBtn = document.querySelector("#checkBtn");
 const revealBtn = document.querySelector("#revealBtn");
 const resetBtn = document.querySelector("#resetBtn");
 const exportBtn = document.querySelector("#exportBtn");
+const helpBtn = document.querySelector("#helpBtn");
+const helpDialog = document.querySelector("#helpDialog");
+const closeHelpBtn = document.querySelector("#closeHelpBtn");
 
 let selectedCardId = null;
+let helpReturnFocus = null;
 
 const serviceTooltip = document.createElement("div");
 serviceTooltip.id = "serviceTooltip";
@@ -822,6 +826,34 @@ function setStatus(message, tone = "") {
   statusMessage.classList.toggle("is-warning", tone === "warning");
 }
 
+function openHelpDialog() {
+  helpReturnFocus = document.activeElement;
+  helpDialog.hidden = false;
+  document.body.style.overflow = "hidden";
+  helpDialog.querySelector(".help-dialog__panel").focus();
+}
+
+function closeHelpDialog() {
+  helpDialog.hidden = true;
+  document.body.style.overflow = "";
+
+  if (helpReturnFocus && typeof helpReturnFocus.focus === "function") {
+    helpReturnFocus.focus();
+  }
+}
+
+function handleHelpDialogClick(event) {
+  if (event.target.matches("[data-help-close]")) {
+    closeHelpDialog();
+  }
+}
+
+function handleHelpDialogKeydown(event) {
+  if (event.key === "Escape" && !helpDialog.hidden) {
+    closeHelpDialog();
+  }
+}
+
 function showServiceTooltip(event, service, anchorToCard = false) {
   serviceTooltip.innerHTML = `
     <strong>${service.name}</strong>
@@ -885,6 +917,10 @@ function init() {
   revealBtn.addEventListener("click", revealSuggestedAnswer);
   resetBtn.addEventListener("click", resetBoard);
   exportBtn.addEventListener("click", exportTeamAnswer);
+  helpBtn.addEventListener("click", openHelpDialog);
+  closeHelpBtn.addEventListener("click", closeHelpDialog);
+  helpDialog.addEventListener("click", handleHelpDialogClick);
+  document.addEventListener("keydown", handleHelpDialogKeydown);
 }
 
 init();
